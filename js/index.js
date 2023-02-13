@@ -33,7 +33,7 @@ navigator.geolocation.getCurrentPosition(
         document.getElementById("temp").innerText = temp + "°C"
         weatherType.innerText = type
         document.querySelector(".weather-icon").innerHTML = `<img class="weather-icon" width="20%" src="./images/${type}.png" alt="">` 
-        let img_url = `url(https://source.unsplash.com/1600x900/?${type.replace(" ","-")})`
+        let img_url = `url(https://source.unsplash.com/1600x900/?${type.replace(" ","-") + sky})`
         document.querySelector("body").style.backgroundImage = img_url 
       })
     })
