@@ -15,13 +15,13 @@ navigator.geolocation.getCurrentPosition(
     // Keeping to only 2 decimal after digit
     latitude = parseFloat(latitude).toFixed(2)  
     longitude =  parseFloat(longitude).toFixed(2);
-    fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${String(latitude)}%2C${String(longitude)}`
+    fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${String(latitude)}%2C${String(longitude)}`
     ).then((response) => (response.json()))
     .then((data) => { 
        this.locationData = data
        document.getElementById("city").innerText = this.locationData.ParentCity.LocalizedName
        location_key = this.locationData.Key
-       const url = `http://dataservice.accuweather.com/currentconditions/v1/${location_key}?apikey=${apiKey}`
+       const url = `https://dataservice.accuweather.com/currentconditions/v1/${location_key}?apikey=${apiKey}`
 
       //  Nested fetch to get weather conditions 
       fetch(url)
